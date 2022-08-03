@@ -1,20 +1,12 @@
 import express from "express";
-import productsController from "../../controllers/productsController.js";
-
+import * as productsController from "../../controllers/productsController.js";
 const productsRouter = express.Router();
 
-// productsRouter.get('/:id', getProductById);
-productsRouter.get('/', productsController.getProducts());
-
-// productsRouter.post('/', createProduct);
-// productsRouter.put('/:id', updateProductById);
-// productsRouter.delete('/:id', deleteProductById);
+productsRouter.get('/:id', productsController.getProductById);
+productsRouter.get('/', productsController.getAll);
+productsRouter.post('/', productsController.createProduct);
+productsRouter.put('/:id', productsController.updateProductById);
+productsRouter.delete('/:id', productsController.deleteProductById);
 
 export default productsRouter;
-
-
-// routerProducts.get('/', async (req, res) => {
-//     const products = await productoDao.getAll();
-//     res.status(200).json(products);
-// })
 
